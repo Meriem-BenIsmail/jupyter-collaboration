@@ -17,7 +17,8 @@ from jupyter_server.utils import ensure_async
 from jupyter_ydoc import ydocs as YDOCS
 from jupyter_ydoc.yfile import YFile
 from jupyter_ydoc.ynotebook import YNotebook
-from jupytercad_core.jcad_ydoc import YJCad
+
+# from jupytercad_core.jcad_ydoc import YJCad
 from pycrdt import Doc, UndoManager, YMessageType, write_var_uint
 from pycrdt_websocket.websocket_server import YRoom
 from pycrdt_websocket.ystore import BaseYStore
@@ -524,8 +525,8 @@ class TimelineForkHandler(APIHandler):
                     FORK_DOCUMENTS[idx] = YNotebook(fork_ydoc)
                 elif fileType == "file":
                     FORK_DOCUMENTS[idx] = YFile(fork_ydoc)
-                elif fileType == "jcad":
-                    FORK_DOCUMENTS[idx] = YJCad(fork_ydoc)
+                # elif fileType == "jcad":
+                # FORK_DOCUMENTS[idx] = YJCad(fork_ydoc)
 
                 undo_manager = FORK_DOCUMENTS[idx].undo_manager
 
